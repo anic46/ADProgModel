@@ -1,4 +1,4 @@
-# Reinforcement learning based disease progression model for Alzheimer's disease
+# Reinforcement learning-based disease progression model for Alzheimer's disease
 
 Implementation of our paper on modeling Alzheimer's disease (AD) progression by combining differential equations (DEs) and reinforcement learning (RL) [NeurIPS 2021] ([link](https://proceedings.neurips.cc/paper/2021/hash/af1c25e88a9e818f809f6b5d18ca02e2-Abstract.html))
 
@@ -54,4 +54,16 @@ Here we desribe the steps to run train the model once the parameters have been e
 1. Use the file src/models/pares_stat_test_adni.py.
 2. Modify the input and output file names and paths appropriately.
 2. Run the file from the command line with no arguments.
-# ADProgModel
+
+## Reference
+If you found the provided code useful, please cite our work.
+
+```
+@article{saboo2021reinforcement,
+  title={Reinforcement Learning based Disease Progression Model for Alzheimer’s Disease},
+  author={Saboo, Krishnakant and Choudhary, Anirudh and Cao, Yurui and Worrell, Gregory and Jones, David and Iyer, Ravishankar},
+  journal={Advances in Neural Information Processing Systems},
+  volume={34},
+  year={2021}
+}
+```
