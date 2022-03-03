@@ -8,9 +8,9 @@ We model Alzheimer’s disease (AD) progression by combining differential equati
 ## Repo content
 - dataset: sample data files
 - models: sample trained model
-notebooks: jupyter notebooks
-output: save the output from various scripts
-src: python source code
+- notebooks: jupyter notebooks
+- output: save the output from various scripts
+- src: python source code
 
 ## Packages required
 1. OpenAI Gym
