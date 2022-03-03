@@ -1,5 +1,11 @@
-# README of code for the manuscript
 # Reinforcement learning based disease progression model for Alzheimer's disease
+
+Implementation of our paper on modeling Alzheimer's disease (AD) progression by combining differential equations (DEs) and reinforcement learning (RL) [NeurIPS 2021][link](https://proceedings.neurips.cc/paper/2021/hash/af1c25e88a9e818f809f6b5d18ca02e2-Abstract.html).
+
+Code for our  
+
+NeurIPS link
+
 
 ## Repo content
 dataset: sample data files
