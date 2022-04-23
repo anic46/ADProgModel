@@ -12,6 +12,24 @@ We model Alzheimer’s disease (AD) progression by combining differential equati
 <em>Framework for modeling AD progression. (A) Relationship between brain size, brain activity, information processing, and cognition (B) Framework for AD progression that combines differential equations with reinforcement learning</em>
 </p>
 
+## Packages required
+
+ 
+## Installation
+### Required packages
+1. OpenAI Gym
+2. Garage Framework (v2020.06.3)
+3. Tensorflow v2.5.0
+4. Numpy
+5. Pandas
+6. Stable Baselines
+
+Create a new python environment and use the following command within the environment
+
+```
+pip install -r requirements.txt
+```
+
 ## Repo content
 - dataset: sample data files
 - models: sample trained model
@@ -19,21 +37,6 @@ We model Alzheimer’s disease (AD) progression by combining differential equati
 - output: save the output from various scripts
 - src: python source code
 
-## Packages required
-1. OpenAI Gym
-2. Garage Framework (v2020.06.3)
-3. Tensorflow v2.5.0
-4. Numpy
-5. Pandas
-<!-- 
-Installation
-Install anaconda/miniconda
-Required packages
-
-  $ conda env create --name dsmil --file env.yml
-  $ conda activate dsmil
-Install OpenSlide and openslide-python.
-Tutorial 1 and Tutorial 2 (Windows). -->
 
 ## How to use this repo
 Below are examples uses of the code in the repo.
