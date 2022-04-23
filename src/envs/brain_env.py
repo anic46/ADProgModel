@@ -10,52 +10,45 @@ class BrainEnv(gym.Env):
 
     def get_new_structure(self, D_old, Y_V, X_V):
         # evolution of amyloid deposition over time
+        D_new = D_old - self.beta * self.H@D_old
         #D_new = D_old - self.beta * self.H@D_old + self.alpha_2*Y_V
         
-        D_new = D_old - self.beta * self.H@D_old
-        
         # new health of brain regions
-        if self.degrade_model == 'new':
+        if self.energy_model == 'inverse-squared':
             delta_X = -self.alpha_1*D_new - self.alpha_2*Y_V/X_V
         else:
             delta_X = -self.alpha_1*D_new - self.alpha_2*Y_V
-        #delta_X = -self.alpha_2*Y_V*np.exp(self.alpha_1*D_new)
+        
+            #delta_X = -self.alpha_2*Y_V*np.exp(self.alpha_1*D_new)
         
         X_V_new = X_V + delta_X
-
         return X_V_new, D_new
 
     # compute energy consumed at frontal and mtl nodes (Yv)
     def calc_node_energy(self, Iv, Xv):
         """compute node energy"""
-        if self.degrade_model == 'inverse':
+        if self.energy_model == 'inverse':
             return self.gamma_v*Iv/Xv
-        elif self.degrade_model == 'inverse-squared':
+        elif self.energy_model == 'inverse-squared':
             return self.gamma_v*Iv/(Xv**2)
         else:
             raise NotImplementedError("relationship between Iv,Xv and Yv not defined")
     
-    def __init__(self, network_size=2, num_edges=1, max_time_steps=7, alpha1_init=None, alpha2_init=None, beta_init=None, gamma_init=None, 
-                 X_V_init=None, D_init=None, cog_type='fixed', cog_init=None, adj=None, action_limit=1.0, w_lambda=1.0, patient_idx=-1, gamma_type='fixed', action_type='delta', 
-                 scale=False, use_gamma=False, degrade_model='old'):
+    def __init__(self, network_size=2, num_edges=1, max_time_steps=7, alpha1_init=None, alpha2_init=None, beta_init=None, gamma_init=None, \
+                 X_V_init=None, D_init=None, cog_type='fixed', cog_init=None, adj=None, action_limit=1.0, w_lambda=1.0, patient_idx=-1, gamma_type='fixed', action_type='delta', \
+                 scale=False, use_gamma=False, energy_model='inverse'):
+        
+        self.env_name = 'brain_env'
         self.patient_idx = patient_idx
+        
         self.gamma_type = gamma_type
         self.action_type = action_type
-        self.normalize_ = scale
-        self.lambda_ = w_lambda
-        self.degrade_model = degrade_model
         self.cog_type = cog_type
-        
-        self.C_task = 10
-        self.normalize_factor = 1/self.C_task if self.normalize_ else 1.0
-        
-        self.state_limits = np.array([[0,10],[0,5]])
-        self.action_limit = action_limit
-        self.reward_bound = 2000.0
-        self.env_name = 'brain_env'
+        self.use_gamma_ = use_gamma
+        self.energy_model = energy_model
+        self.normalize_ = scale
         
         self.cog_init_ = cog_init
-        
         self.beta_init_ = beta_init
         self.alpha1_init_ = alpha1_init 
         self.alpha2_init_ = alpha2_init 
@@ -63,7 +56,12 @@ class BrainEnv(gym.Env):
         self.X_V_init_ = X_V_init 
         self.D_init_ = D_init
         
-        self.use_gamma_ = use_gamma
+        self.lambda_ = w_lambda
+        self.C_task = 10
+        self.normalize_factor = 1/self.C_task if self.normalize_ else 1.0
+        self.state_limits = np.array([[0,10],[0,5]])
+        self.action_limit = action_limit
+        self.reward_bound = 2000.0
         
         self.adj_ = adj # adjacency matrix
         self.H = np.diag(np.sum(self.adj_, axis=1)) - self.adj_

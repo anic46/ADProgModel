@@ -7,9 +7,9 @@ from envs import BrainEnv
 import tensorflow as tf
 import pandas as pd
 import numpy as np
-import stable_baselines
-from stable_baselines import TRPO, PPO2
-from stable_baselines.common.vec_env import DummyVecEnv, VecNormalize
+# import stable_baselines
+# from stable_baselines import TRPO, PPO2
+# from stable_baselines.common.vec_env import DummyVecEnv, VecNormalize
 
 import garage
 from garage.envs import GarageEnv
@@ -197,7 +197,7 @@ class EvalPolicy():
                 policy.reset()
                 steps, max_steps = 0, self.T #data[-2][i]
                 
-                while steps < max_steps: # and not done:
+                while steps < max_steps:
                     # Getting policy action (due to stochastic nature, we select the mean)
                     action = policy.get_action(obs)[1]['mean']
                     obs, rew, done, eg = env.step(action)
@@ -207,9 +207,7 @@ class EvalPolicy():
                     self.mtl_d[i,steps], self.ftl_d[i,steps] = eg['D']
                     self.mtl_load[i,steps], self.ftl_load[i,steps] = obs[:2]*scale_factor
                     
-                    
                     out_data.append([j, steps, obs[0]*scale_factor, obs[1]*scale_factor, eg['y'][0], eg['y'][1], eg['health'][0], eg['health'][1], eg['D'][0], eg['D'][1], data[3][i], data[0][i], alpha2_init_new[i], gamma_init[i]])
-
                     self.cognition_vec_rl.append(obs[0]+obs[1])
                     self.reward_vec_rl.append(rew)
                     

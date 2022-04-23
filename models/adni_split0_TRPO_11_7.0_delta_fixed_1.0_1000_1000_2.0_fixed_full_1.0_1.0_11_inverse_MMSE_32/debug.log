@@ -1,0 +1,179 @@
+2022-04-23 13:49:29 | [train_policy] Logging to ../models/adni_split0_TRPO_11_7.0_delta_fixed_1.0_1000_1000_2.0_fixed_full_1.0_1.0_11_inverse_MMSE_32
+2022-04-23 13:49:29 | [train_policy] Setting seed to 1
+2022-04-23 13:49:31 | [train_policy] Obtaining samples...
+2022-04-23 13:49:31 | [train_policy] epoch #0 | Obtaining samples for iteration 0...
+2022-04-23 13:49:32 | [train_policy] epoch #0 | Logging diagnostics...
+2022-04-23 13:49:32 | [train_policy] epoch #0 | Optimizing policy...
+2022-04-23 13:49:32 | [train_policy] epoch #0 | Computing loss before
+2022-04-23 13:49:32 | [train_policy] epoch #0 | Computing KL before
+2022-04-23 13:49:32 | [train_policy] epoch #0 | Optimizing
+2022-04-23 13:49:32 | [train_policy] epoch #0 | Start CG optimization: #parameters: 1348, #inputs: 92, #subsample_inputs: 92
+2022-04-23 13:49:32 | [train_policy] epoch #0 | computing loss before
+2022-04-23 13:49:32 | [train_policy] epoch #0 | computing gradient
+2022-04-23 13:49:33 | [train_policy] epoch #0 | gradient computed
+2022-04-23 13:49:33 | [train_policy] epoch #0 | computing descent direction
+2022-04-23 13:49:34 | [train_policy] epoch #0 | descent direction computed
+2022-04-23 13:49:34 | [train_policy] epoch #0 | backtrack iters: 0
+2022-04-23 13:49:34 | [train_policy] epoch #0 | optimization finished
+2022-04-23 13:49:34 | [train_policy] epoch #0 | Computing KL after
+2022-04-23 13:49:34 | [train_policy] epoch #0 | Computing loss after
+2022-04-23 13:49:34 | [train_policy] epoch #0 | Fitting baseline...
+2022-04-23 13:49:34 | [train_policy] epoch #0 | Saving snapshot...
+2022-04-23 13:49:34 | [train_policy] epoch #0 | Saved
+2022-04-23 13:49:34 | [train_policy] epoch #0 | Time 3.63 s
+2022-04-23 13:49:34 | [train_policy] epoch #0 | EpochTime 3.63 s
+---------------------------------------  ----------------
+EnvExecTime                                   0.694121
+Evaluation/AverageDiscountedReturn        -5122.66
+Evaluation/AverageReturn                  -5122.66
+Evaluation/CompletionRate                     0
+Evaluation/Iteration                          0
+Evaluation/MaxReturn                        -46.1096
+Evaluation/MinReturn                     -22000
+Evaluation/NumTrajs                          92
+Evaluation/StdReturn                       6669.7
+Extras/EpisodeRewardMean                  -5122.66
+LinearFeatureBaseline/ExplainedVariance      -7.34936e-10
+PolicyExecTime                                0.480272
+ProcessExecTime                               0.0291502
+TotalEnvSteps                              1012
+policy/Entropy                                2.83582
+policy/KL                                     0.00934735
+policy/KLBefore                               0
+policy/LossAfter                             -0.0566963
+policy/LossBefore                            -8.71688e-09
+policy/Perplexity                            17.0444
+policy/dLoss                                  0.0566963
+---------------------------------------  ----------------
+2022-04-23 13:49:34 | [train_policy] epoch #1 | Obtaining samples for iteration 1...
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Logging diagnostics...
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Optimizing policy...
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Computing loss before
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Computing KL before
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Optimizing
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Start CG optimization: #parameters: 1348, #inputs: 92, #subsample_inputs: 92
+2022-04-23 13:49:35 | [train_policy] epoch #1 | computing loss before
+2022-04-23 13:49:35 | [train_policy] epoch #1 | computing gradient
+2022-04-23 13:49:35 | [train_policy] epoch #1 | gradient computed
+2022-04-23 13:49:35 | [train_policy] epoch #1 | computing descent direction
+2022-04-23 13:49:35 | [train_policy] epoch #1 | descent direction computed
+2022-04-23 13:49:35 | [train_policy] epoch #1 | backtrack iters: 1
+2022-04-23 13:49:35 | [train_policy] epoch #1 | optimization finished
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Computing KL after
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Computing loss after
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Fitting baseline...
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Saving snapshot...
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Saved
+2022-04-23 13:49:35 | [train_policy] epoch #1 | Time 4.38 s
+2022-04-23 13:49:35 | [train_policy] epoch #1 | EpochTime 0.73 s
+---------------------------------------  ----------------
+EnvExecTime                                   0.279692
+Evaluation/AverageDiscountedReturn        -3683.64
+Evaluation/AverageReturn                  -3683.64
+Evaluation/CompletionRate                     0
+Evaluation/Iteration                          1
+Evaluation/MaxReturn                        -46.6611
+Evaluation/MinReturn                     -21881.4
+Evaluation/NumTrajs                          92
+Evaluation/StdReturn                       5980.06
+Extras/EpisodeRewardMean                  -3905.85
+LinearFeatureBaseline/ExplainedVariance       0.207279
+PolicyExecTime                                0.197752
+ProcessExecTime                               0.0292647
+TotalEnvSteps                              2024
+policy/Entropy                                2.81486
+policy/KL                                     0.00670421
+policy/KLBefore                               0
+policy/LossAfter                             -0.0500698
+policy/LossBefore                             2.40303e-08
+policy/Perplexity                            16.6908
+policy/dLoss                                  0.0500698
+---------------------------------------  ----------------
+2022-04-23 13:49:35 | [train_policy] epoch #2 | Obtaining samples for iteration 2...
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Logging diagnostics...
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Optimizing policy...
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Computing loss before
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Computing KL before
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Optimizing
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Start CG optimization: #parameters: 1348, #inputs: 92, #subsample_inputs: 92
+2022-04-23 13:49:36 | [train_policy] epoch #2 | computing loss before
+2022-04-23 13:49:36 | [train_policy] epoch #2 | computing gradient
+2022-04-23 13:49:36 | [train_policy] epoch #2 | gradient computed
+2022-04-23 13:49:36 | [train_policy] epoch #2 | computing descent direction
+2022-04-23 13:49:36 | [train_policy] epoch #2 | descent direction computed
+2022-04-23 13:49:36 | [train_policy] epoch #2 | backtrack iters: 1
+2022-04-23 13:49:36 | [train_policy] epoch #2 | optimization finished
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Computing KL after
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Computing loss after
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Fitting baseline...
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Saving snapshot...
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Saved
+2022-04-23 13:49:36 | [train_policy] epoch #2 | Time 5.22 s
+2022-04-23 13:49:36 | [train_policy] epoch #2 | EpochTime 0.82 s
+---------------------------------------  ----------------
+EnvExecTime                                   0.30709
+Evaluation/AverageDiscountedReturn        -1298.59
+Evaluation/AverageReturn                  -1298.59
+Evaluation/CompletionRate                     0
+Evaluation/Iteration                          2
+Evaluation/MaxReturn                        -44.9154
+Evaluation/MinReturn                     -14300.1
+Evaluation/NumTrajs                          92
+Evaluation/StdReturn                       2631.54
+Extras/EpisodeRewardMean                  -1568.13
+LinearFeatureBaseline/ExplainedVariance      -0.24769
+PolicyExecTime                                0.235576
+ProcessExecTime                               0.0318432
+TotalEnvSteps                              3036
+policy/Entropy                                2.80928
+policy/KL                                     0.00686679
+policy/KLBefore                               0
+policy/LossAfter                             -0.038921
+policy/LossBefore                             9.65925e-09
+policy/Perplexity                            16.5979
+policy/dLoss                                  0.038921
+---------------------------------------  ----------------
+2022-04-23 13:49:36 | [train_policy] epoch #3 | Obtaining samples for iteration 3...
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Logging diagnostics...
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Optimizing policy...
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Computing loss before
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Computing KL before
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Optimizing
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Start CG optimization: #parameters: 1348, #inputs: 92, #subsample_inputs: 92
+2022-04-23 13:49:37 | [train_policy] epoch #3 | computing loss before
+2022-04-23 13:49:37 | [train_policy] epoch #3 | computing gradient
+2022-04-23 13:49:37 | [train_policy] epoch #3 | gradient computed
+2022-04-23 13:49:37 | [train_policy] epoch #3 | computing descent direction
+2022-04-23 13:49:37 | [train_policy] epoch #3 | descent direction computed
+2022-04-23 13:49:37 | [train_policy] epoch #3 | backtrack iters: 0
+2022-04-23 13:49:37 | [train_policy] epoch #3 | optimization finished
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Computing KL after
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Computing loss after
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Fitting baseline...
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Saving snapshot...
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Saved
+2022-04-23 13:49:37 | [train_policy] epoch #3 | Time 6.00 s
+2022-04-23 13:49:37 | [train_policy] epoch #3 | EpochTime 0.76 s
+---------------------------------------  ----------------
+EnvExecTime                                   0.289768
+Evaluation/AverageDiscountedReturn         -745.527
+Evaluation/AverageReturn                   -745.527
+Evaluation/CompletionRate                     0
+Evaluation/Iteration                          3
+Evaluation/MaxReturn                        -39.7793
+Evaluation/MinReturn                     -12075.3
+Evaluation/NumTrajs                          92
+Evaluation/StdReturn                       1985.08
+Extras/EpisodeRewardMean                   -771.245
+LinearFeatureBaseline/ExplainedVariance       0.147975
+PolicyExecTime                                0.211863
+ProcessExecTime                               0.0304742
+TotalEnvSteps                              4048
+policy/Entropy                                2.78334
+policy/KL                                     0.00992237
+policy/KLBefore                               0
+policy/LossAfter                             -0.0422623
+policy/LossBefore                            -9.42366e-10
+policy/Perplexity                            16.1729
+policy/dLoss                                  0.0422623
+---------------------------------------  ----------------
