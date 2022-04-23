@@ -48,12 +48,15 @@ Below are examples uses of the code in the repo.
 
 ### Running the model
 Here we desribe the steps to run train the model once the parameters have been estimated. Example is shown using the sample adni data provided in dataset/processed/. To train the RL agent with various parameter configurations described in the paper. The base configuration of parameters is stored in brain.json file within src folder.
-1. cd src
-2. python configs/train_config.py
-3. cd ../
-4. Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
-5. Train the agents: python run_agents.py configs/train_configs. 
-6. Open the output notebook to browse the results of the experiment. Separate folder is created for each hyperparameter combination. Also, the MAE and MSE values are saved in 'results_real.csv' and 'results_syn.csv' files in the output folder.
+```
+cd src
+python configs/train_config.py
+```
+Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
+Train the agents by running the following in 'src' folder
+```python run_agents.py configs/train_configs
+```
+Open the output notebook to browse the results of the experiment. Separate folder is created for each hyperparameter combination. Also, the MAE and MSE values are saved in 'results_real.csv' and 'results_syn.csv' files in the output folder.
 
 ## Evaluating a trained model
 1. cd src
