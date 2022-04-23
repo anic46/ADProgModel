@@ -41,7 +41,7 @@ pip install -r requirements.txt
 Below are examples uses of the code in the repo.
 
 ### Parameter estimation
-1. Use the file notebooks/ParameterEstimation.ipynb
+1. Use the file `notebooks/ParameterEstimation.ipynb`
 2. Specify the input and output file names appropriately. Input file should contain longitudinal multimodal data of individuals with columns `subject ID`, `visit number`, `features`, `cognition`. Check out sample file for an example.
 3. Follow the steps in the notebook. It will generate the parameters for the data and store it in an `excel/csv` file.
 
@@ -52,27 +52,38 @@ cd src
 python configs/train_config.py
 ```
 Edit the `NUM_THREADS` variables in the `run_agents.py` file according to your local machine.
-Train the agents by running the following in `src` folder
-```python run_agents.py configs/train_configs
+Train the agents by executing the following command in `src` folder
 ```
-Open the output notebook to browse the results of the experiment. Separate folder is created for each hyperparameter combination. Also, the MAE and MSE values are saved in `results_real.csv` and `results_syn.csv` files in the `output` folder.
+python run_agents.py configs/train_configs
+```
+Browse the `output` folder to view the results of the experiment. A separate folder is created for each hyperparameter combination. The folder name is defined as follows:
+```
+{data_type}_{data split}_{RL algorithm}_{max time horizon in years}_{baseline cognition frontal}_{RL action type}_{gamma type}_{gamma}_{epochs}_{batch size}_{action bound}_{cognition initialization}_{RL discount factor}_{lambda}_{training iterations}_{degradation model}_{cognition score to use}_{RL network hidden layer size}
+```
+Example: `adni_split0_TRPO_11_7.0_delta_fixed_1.0_1000_1000_2.0_fixed_full_1.0_1.0_11_old_MMSE_32`
+Also, the MAE and MSE values are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
 
 ## Evaluating a trained model
-1. cd src
-2. python configs/eval_config.py
-3. cd ../
-4. Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
-5. Evaluate the agent: python run_agents.py configs/eval_configs
+```
+cd src
+python configs/eval_config.py
+```
+Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
+Evaluate the agent by executing the following command in `src` folder
+```
+python run_agents.py configs/eval_configs
+```
+Browse the `output` folder to view the results of the experiment.
 
 ### Evaluating the effect of missing values on parameter estimation
-1. Use the file notebooks/MissingData_ParameterEstimation.ipynb and follow steps therein.
+1. Use the file `notebooks/MissingData_ParameterEstimation.ipynb` and follow steps therein.
 
 ### Evaluating benchmark model: Proposed model without RL
-1. Use the file notebooks/SimulateModelwoRL.ipynb and follow the steps therein.
+1. Use the file `notebooks/SimulateModelwoRL.ipynb` and follow the steps therein.
 2. Make sure to specify the appropriate file name for data along with parameter estimates.
 
 ### Evaluating statistical relationship between individualized parameter estimates and demographic variables
-1. Use the file src/models/pares_stat_test_adni.py.
+1. Use the file `src/models/pares_stat_test_adni.py`.
 2. Modify the input and output file names and paths appropriately.
 2. Run the file from the command line with no arguments.
 
