@@ -30,33 +30,32 @@ Create a new python environment and use the following command within the environ
 pip install -r requirements.txt
 ```
 
-## Repo content
-- dataset: sample data files
-- models: sample trained model
-- notebooks: jupyter notebooks
-- output: save the output from various scripts
-- src: python source code
-
+## Repository structure
+- _dataset_: sample input data files (synthetic data and real-world ADNI data)
+- _models_: stores the trained models under subfolders created based on input parameter combination
+- _notebooks_: notebooks used for parameter estimation of differential equations and simulating synthetic data
+- _output_: stores the cognition trajectories generated after evaluation (cognition plots and related values in an excel `.xlsx` file)
+- _src_: code for RL model and gym environment
 
 ## How to use this repo
 Below are examples uses of the code in the repo.
 
 ### Parameter estimation
 1. Use the file notebooks/ParameterEstimation.ipynb
-2. Specify the input and output file names appropriately. Input file should contain longitudinal multimodal data of individuals with columns subject ID, visit number, features, cognition. Check out sample file for an example.
-3. Follow the steps in the notebook. It will generate the parameters for the data and store it in an excel/csv file.
+2. Specify the input and output file names appropriately. Input file should contain longitudinal multimodal data of individuals with columns `subject ID`, `visit number`, `features`, `cognition`. Check out sample file for an example.
+3. Follow the steps in the notebook. It will generate the parameters for the data and store it in an `excel/csv` file.
 
 ### Running the model
-Here we desribe the steps to run train the model once the parameters have been estimated. Example is shown using the sample adni data provided in dataset/processed/. To train the RL agent with various parameter configurations described in the paper. The base configuration of parameters is stored in brain.json file within src folder.
+Here we desribe the steps to run train the model once the parameters have been estimated. Example is shown using the sample ADNI data provided in `dataset/processed/` folder. To train the RL agent with various parameter configurations described in the paper, use the following command. The base configuration of parameters is stored in `src/brain.json` file.
 ```
 cd src
 python configs/train_config.py
 ```
-Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
-Train the agents by running the following in 'src' folder
+Edit the `NUM_THREADS` variables in the `run_agents.py` file according to your local machine.
+Train the agents by running the following in `src` folder
 ```python run_agents.py configs/train_configs
 ```
-Open the output notebook to browse the results of the experiment. Separate folder is created for each hyperparameter combination. Also, the MAE and MSE values are saved in 'results_real.csv' and 'results_syn.csv' files in the output folder.
+Open the output notebook to browse the results of the experiment. Separate folder is created for each hyperparameter combination. Also, the MAE and MSE values are saved in `results_real.csv` and `results_syn.csv` files in the `output` folder.
 
 ## Evaluating a trained model
 1. cd src
