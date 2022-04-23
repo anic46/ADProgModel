@@ -3,7 +3,7 @@ gym
 garage==2020.06.3
 numpy==1.19.1
 pillow
-tensorboard==2.1
+tensorboard
 matplotlib
 scikit-learn
 pandas
