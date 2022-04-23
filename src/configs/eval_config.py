@@ -11,7 +11,7 @@ with open("brain.json") as f:
 PARAMS = {
     #"filename":["synthetic_split0.xls"], 
     "filename":["adni_split0.xls"],
-    "datatype":["real"],
+    "datatype":["adni"],
     "algo": ["TRPO"],
     "w_lambda":[1.0],
     "gamma":[1.0],
