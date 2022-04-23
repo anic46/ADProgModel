@@ -84,7 +84,7 @@ Browse the `output` folder to view the results of the experiment.
 2. Run the file from the command line with no arguments.
 
 ## Reference
-If you found the provided code useful, please cite our work.
+If you use the provided code or results in your research, please use the following BibTeX entry to cite our work.
 
 ```
 @article{saboo2021reinforcement,
