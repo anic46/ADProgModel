@@ -236,7 +236,7 @@ class EvalPolicy():
         self.output.columns = new_columns
         self.output['cogsc_rl'] = self.output['reg1_info_rl'] + self.output['reg2_info_rl']
     
-    # computes the output cognition values and frontal/mtl degradation and energy-related values which are stored in xlsx file
+    # computes the output cognition values and frontal/mtl degradation and energy-related values which are stored in xlsx file. Also, calls the plotting function.
     def eval(self, df, data_type='test', exp_type='synthetic', score='MMSE'):
         if exp_type == 'adni':
             #cognition_vec = df['MMSE_norm'].values
@@ -250,19 +250,13 @@ class EvalPolicy():
                 mode = 'a'
             
             outfile = self.snapshot_dir.split("/")[-1].replace("synthetic","rl")
-            
             df_join['cog_diff'] = df_join['cogsc_rl'] - df_join['cogsc']
-            
-            
             with pd.ExcelWriter(f'{self.snapshot_dir}/{outfile}.xlsx', engine="openpyxl", mode=mode) as writer:  
                 df_join.to_excel(writer, sheet_name=data_type, index=False)  
-            
             df_join = pd.merge(df, self.output,  how='left', left_on=['RID','Years'], right_on = ['RID','Years'])
-            
             df_join['cogsc'] = df_join[f'{score}_norm']
             
             plot_real(df_join, f'{self.snapshot_dir}/ground_truth_traj_{data_type}.png')
-            
             df_join['cogsc'] = df_join['reg1_info_rl'] + df_join['reg2_info_rl']
             plot_real(df_join, f'{self.snapshot_dir}/rl_traj_common_{data_type}.png')
             
