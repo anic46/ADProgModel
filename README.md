@@ -56,7 +56,7 @@ A subfolder is created under `models` and `output` folders corresponding to each
 ```
 **Example**: `adni_split0_TRPO_11_7.0_delta_fixed_1.0_1000_1000_2.0_fixed_full_1.0_1.0_11_inverse_MMSE_32`
 
-Energy model corresponds to how Yv is modeled as a function of Xv and Iv. Inverse model: <img src="https://render.githubusercontent.com/render/math?math=Y_{v} = \frac{gamma_v*I_v}{X_v}">
+Energy model corresponds to how Yv is modeled as a function of Xv and Iv. Inverse model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)}"> ; Inverse-squared model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)^2}">
 
 The `models` folder stores training progress using tensorboard events and the trained RL model `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
 
