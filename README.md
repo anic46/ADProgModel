@@ -12,9 +12,6 @@ We model Alzheimer’s disease (AD) progression by combining differential equati
 <em>Framework for modeling AD progression. (A) Relationship between brain size, brain activity, information processing, and cognition (B) Framework for AD progression that combines differential equations with reinforcement learning</em>
 </p>
 
-## Packages required
-
- 
 ## Installation
 ### Required packages
 1. OpenAI Gym
