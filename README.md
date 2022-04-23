@@ -14,13 +14,13 @@ We model Alzheimer’s disease (AD) progression by combining differential equati
 
 ## Installation
 ### Required packages
-1. OpenAI Gym
-2. Garage Framework (v2020.06.3)
-3. Tensorflow v2.2.0
+1. OpenAI Gym (0.17.2)
+2. Garage Framework (2020.06.3)
+3. Tensorflow (2.2.0)
 4. Numpy
 5. Pandas
 
-Create a new python environment and use the following command within the environment
+Create a new python environment using anaconda/miniconda and use the following command to install required packages in that environment
 
 ```
 pip install -r requirements.txt
