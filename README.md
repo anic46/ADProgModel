@@ -16,10 +16,9 @@ We model Alzheimer’s disease (AD) progression by combining differential equati
 ### Required packages
 1. OpenAI Gym
 2. Garage Framework (v2020.06.3)
-3. Tensorflow v2.5.0
+3. Tensorflow v2.2.0
 4. Numpy
 5. Pandas
-6. Stable Baselines
 
 Create a new python environment and use the following command within the environment
 
