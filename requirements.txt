@@ -1,4 +1,4 @@
-tensorflow==2.5.0
+tensorflow==2.8.0
 gym
 garage==2020.06.3
 numpy
