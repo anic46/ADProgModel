@@ -25,12 +25,15 @@ class BrainEnv(gym.Env):
 
         return X_V_new, D_new
 
+    # compute energy consumed at frontal and mtl nodes (Yv)
     def calc_node_energy(self, Iv, Xv):
         """compute node energy"""
-        if self.degrade_model == 'old':
+        if self.degrade_model == 'inverse':
             return self.gamma_v*Iv/Xv
-        else:
+        elif self.degrade_model == 'inverse-squared':
             return self.gamma_v*Iv/(Xv**2)
+        else:
+            raise NotImplementedError("relationship between Iv,Xv and Yv not defined")
     
     def __init__(self, network_size=2, num_edges=1, max_time_steps=7, alpha1_init=None, alpha2_init=None, beta_init=None, gamma_init=None, 
                  X_V_init=None, D_init=None, cog_type='fixed', cog_init=None, adj=None, action_limit=1.0, w_lambda=1.0, patient_idx=-1, gamma_type='fixed', action_type='delta', 
@@ -125,6 +128,7 @@ class BrainEnv(gym.Env):
         ##Check if the episode is complete
         return True if self.t >= self.max_time_steps else False
  
+    # reward model for RL
     def calc_reward(self, state, M, Ct_1, C_first=None):    
         Ct = state.sum()
         C_task = self.C_task if C_first is None else C_first
@@ -135,8 +139,6 @@ class BrainEnv(gym.Env):
         
         #t = 2.0 if t>5 else 1.0
         #print(np.abs(Ct-Ct_1), np.abs(C_task - Ct))
-        
-        
         
         # Constrain reward to be within specified range
         if np.isnan(reward):
