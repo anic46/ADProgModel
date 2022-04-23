@@ -66,7 +66,7 @@ cd src
 python configs/eval_config.py
 ```
 Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
-Evaluate the agent by executing the following command in `src` folder
+Evaluate the trained RL model by executing the following command in `src` folder
 ```
 python run_agents.py configs/eval_configs
 ```
