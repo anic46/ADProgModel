@@ -8,4 +8,4 @@ matplotlib
 scikit-learn
 pandas
 jupyterlab
-opencv
+opencv-python
