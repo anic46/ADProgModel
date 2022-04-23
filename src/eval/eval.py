@@ -139,7 +139,7 @@ def plot_curves(mtl_load, ftl_load, mtl_energy, ftl_energy, mtl_h, ftl_h, filepa
     
 # policy evaluation class
 class EvalPolicy():
-    def __init__(self, T=11, snapshot_dir=None, log_dir=None, gamma=2.1, gamma_type='fixed', cog_init=None, adj=None, action_type='delta', action_limit=1.0, w_lambda=1.0, degrade_model='old'):
+    def __init__(self, T=11, snapshot_dir=None, log_dir=None, gamma=2.1, gamma_type='fixed', cog_init=None, adj=None, action_type='delta', action_limit=1.0, w_lambda=1.0, energy_model='inverse'):
         self.T = T
         self.gamma = gamma
         self.snapshot_dir = snapshot_dir
@@ -150,7 +150,7 @@ class EvalPolicy():
         self.action_type = action_type
         self.action_limit = action_limit
         self.w_lambda=w_lambda
-        self.degrade_model=degrade_model
+        self.energy_model=energy_model
 
 
     def simulate(self, data=None, data_type='test', scale_state=True, normalize_state=False):
@@ -187,11 +187,11 @@ class EvalPolicy():
                 done = False
                 if normalize_state:
                     env = BrainEnv(max_time_steps=self.T+1, alpha1_init=data[0], alpha2_init=alpha2_init_new, beta_init=data[3], gamma_init=gamma_init, X_V_init=data[5], \
-                                            D_init=data[4], cog_init=data[-1], adj=self.adj, action_limit=self.action_limit, w_lambda=self.w_lambda, patient_idx=i, gamma_type=self.gamma_type, action_type=self.action_type, scale=scale_state, degrade_model=self.degrade_model)
+                                            D_init=data[4], cog_init=data[-1], adj=self.adj, action_limit=self.action_limit, w_lambda=self.w_lambda, patient_idx=i, gamma_type=self.gamma_type, action_type=self.action_type, scale=scale_state, energy_model=self.energy_model)
                     env = VecNormalize(env, norm_obs=True, norm_reward=False, clip_obs=10.)
                 else:
                     env = BrainEnv(max_time_steps=self.T+1, alpha1_init=data[0], alpha2_init=alpha2_init_new, beta_init=data[3], gamma_init=gamma_init, X_V_init=data[5], \
-                                        D_init=data[4], cog_init=data[-1], adj=self.adj, action_limit=self.action_limit, w_lambda=self.w_lambda, patient_idx=i, gamma_type=self.gamma_type, action_type=self.action_type, scale=scale_state, degrade_model=self.degrade_model)
+                                        D_init=data[4], cog_init=data[-1], adj=self.adj, action_limit=self.action_limit, w_lambda=self.w_lambda, patient_idx=i, gamma_type=self.gamma_type, action_type=self.action_type, scale=scale_state, energy_model=self.energy_model)
                 
                 obs = env.reset()  # The initial observation
                 policy.reset()
