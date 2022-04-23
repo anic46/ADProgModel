@@ -30,7 +30,7 @@ def error_plot(mat, ylab):
     plt.tight_layout()
     plt.xticks(range(1,mat.T.shape[0]+1))
     
-
+# individual plot function for synthetic data
 def plot_synthetic(df, filepath, type=''):
     font = {'family' : 'arial',
             'weight' : 'normal',
@@ -76,7 +76,7 @@ def plot_synthetic(df, filepath, type=''):
     #plt.tight_layout()
     plt.savefig(filepath)
     
-    
+# individual plot function for adni data
 def plot_real(df, filepath):
     font = {'family' : 'arial',
             'weight' : 'normal',
@@ -96,11 +96,10 @@ def plot_real(df, filepath):
     plt.title(f"Mean Total Cognition:{np.round(df['cogsc'].mean(),2)}")
     plt.legend([],[], frameon=False)
     plt.ylim([0,11])
-    
-
+   
     plt.savefig(filepath)
     
-    
+#plot function for generating output png files
 def plot_curves(mtl_load, ftl_load, mtl_energy, ftl_energy, mtl_h, ftl_h, filepath):
     font = {'family' : 'arial',
             'weight' : 'normal',
@@ -138,7 +137,7 @@ def plot_curves(mtl_load, ftl_load, mtl_energy, ftl_energy, mtl_h, ftl_h, filepa
     #plt.tight_layout()
     plt.savefig(filepath)
     
-    
+# policy evaluation class
 class EvalPolicy():
     def __init__(self, T=11, snapshot_dir=None, log_dir=None, gamma=2.1, gamma_type='fixed', cog_init=None, adj=None, action_type='delta', action_limit=1.0, w_lambda=1.0, degrade_model='old'):
         self.T = T
@@ -218,7 +217,6 @@ class EvalPolicy():
 
                 env.close()
                 
-        
         try:
             plot_curves(self.mtl_load, self.ftl_load, self.mtl_energy, self.ftl_energy, self.mtl_h, self.ftl_h, f'{self.snapshot_dir}/rl_traj_full_{data_type}.png')   
         except:
@@ -235,13 +233,12 @@ class EvalPolicy():
             else:
                 new_columns.append(c)
                 
-        
         self.output.columns = new_columns
         self.output['cogsc_rl'] = self.output['reg1_info_rl'] + self.output['reg2_info_rl']
     
-    
+    # computes the output cognition values and frontal/mtl degradation and energy-related values which are stored in xlsx file
     def eval(self, df, data_type='test', exp_type='synthetic', score='MMSE'):
-        if exp_type == 'real':
+        if exp_type == 'adni':
             #cognition_vec = df['MMSE_norm'].values
             df_join = pd.merge(df, self.output,  how='right', left_on=['RID','Years'], right_on = ['RID','Years'])
             
