@@ -56,6 +56,7 @@ Browse the `output` folder to view the results of the experiment. A separate fol
 {data_type}_{data split}_{RL algorithm}_{max time horizon in years}_{baseline cognition frontal}_{RL action type}_{gamma type(variable/fixed)}_{gamma}_{epochs}_{batch size}_{action bound}_{cognition initialization}_{RL discount factor}_{lambda}_{training iterations}_{relationship between Y(t), X(t), I(t) (inverse or inverse-squared)}_{cognition score to use(ADAS, MMSE)}_{RL network hidden layer size}
 ```
 **Example**: `adni_split0_TRPO_11_7.0_delta_fixed_1.0_1000_1000_2.0_fixed_full_1.0_1.0_11_inverse_MMSE_32`
+
 Also, the MAE and MSE values are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
 
 ## Evaluating a trained model
