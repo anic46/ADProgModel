@@ -1,7 +1,7 @@
 tensorflow==2.5.0
 gym
 garage==2020.06.3
-numpy==1.19.1
+numpy
 pillow
 tensorboard
 matplotlib
