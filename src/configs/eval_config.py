@@ -25,7 +25,7 @@ PARAMS = {
     "scale":[True],
     "discount":[1.00],
     "network":[32],
-    "degrade_model":["old"],
+    "degrade_model":["inverse"],
     "normalize":[False]
 }
 
