@@ -50,13 +50,17 @@ Train the agents by executing the following command in `src` folder
 ```
 python run_agents.py configs/train_configs
 ```
-A subfolder is created under `models` and `output` folders corresponding to each hyperparameter combination. The folder name is defined as follows:
+A subfolder is created under `models` and `output` folders corresponding to each hyperparameter combination. The subfolder name is defined as follows:
 ```
-{data_type}_{data split}_{RL algorithm}_{max time horizon in years}_{baseline cognition frontal}_{RL action type}_{gamma type(variable/fixed)}_{gamma}_{epochs}_{batch size}_{action bound}_{cognition initialization}_{RL discount factor}_{lambda}_{training iterations}_{energy model (check Appendix C.3) (inverse or inverse-squared)}_{cognition score to use(ADAS, MMSE)}_{RL network hidden layer size}
+{data_type}_{data split}_{RL algorithm}_{max time horizon in years}_{baseline cognition frontal}_{RL action type}_{gamma type(variable/fixed)}_{gamma}_{epochs}_{batch size}_{action bound}_{cognition initialization}_{RL discount factor}_{lambda}_{training iterations}_{energy model (inverse or inverse-squared)}_{cognition score to use(ADAS, MMSE)}_{RL network hidden layer size}
 ```
 **Example**: `adni_split0_TRPO_11_7.0_delta_fixed_1.0_1000_1000_2.0_fixed_full_1.0_1.0_11_inverse_MMSE_32`
 
-The `models` folder stores training progress using tensorboard events and the trained RL model `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
+Energy model corresponds to how Yv is modeled as a function of Xv and Iv. We experimented with two models:
+- Inverse model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)}">
+- Inverse-squared model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)^2}">
+
+The `models` folder stores training progress using tensorboard events and the trained RL model as `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
 
 ## Evaluating a trained model
 ```
