@@ -35,8 +35,6 @@ pip install -r requirements.txt
 - _src_: code for RL model and gym environment
 
 ## How to use this repo
-Below are examples uses of the code in the repo.
-
 ### Parameter estimation
 1. Use the file `notebooks/ParameterEstimation.ipynb`
 2. Specify the input and output file names appropriately. Input file should contain longitudinal multimodal data of individuals with columns `subject ID`, `visit number`, `features`, `cognition`. Check out sample file for an example.
