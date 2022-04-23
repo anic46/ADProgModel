@@ -30,7 +30,7 @@ pip install -r requirements.txt
 - _dataset_: sample input data files (synthetic data and real-world ADNI data)
 - _models_: stores the trained models under subfolders created based on input parameter combination
 - _notebooks_: notebooks used for parameter estimation of differential equations and simulating synthetic data
-- _output_: stores the cognition trajectories generated after evaluation (cognition plots and related values in an excel `.xlsx` file)
+- _output_: stores the cognition trajectories generated after evaluation (cognition plots and related values in excel file)
 - _src_: code for RL model and gym environment
 
 ## How to use this repo
@@ -60,7 +60,7 @@ Energy model corresponds to how Yv is modeled as a function of Xv and Iv. We exp
 - Inverse model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)}">
 - Inverse-squared model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)^2}">
 
-The `models` folder stores training progress using tensorboard events and the trained RL model as `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
+The `models` folder stores training progress using tensorboard events and the trained RL model as `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values across all subjects in a train/val fold are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
 
 ## Evaluating a trained model
 ```
