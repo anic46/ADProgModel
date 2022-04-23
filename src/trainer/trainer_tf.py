@@ -48,11 +48,11 @@ def main(args):
                 
     name = name.replace("_frontal_hippo_atleast3","")
     
-    log_dir = f'../models/{name}_{args.algo}_{max_time_steps}_{cog_init[0]}_{action_type}_{gamma_type}_{gamma}_{epochs}_{batch_size}_{args.action_limit}_{args.cog_type}_{args.cog_init}_{args.discount}_{args.w_lambda}_{args.trainsteps}_{args.degrade_model}_{args.score}_{args.network}'
+    log_dir = f'../models/{name}_{args.algo}_{max_time_steps}_{cog_init[0]}_{action_type}_{gamma_type}_{gamma}_{epochs}_{batch_size}_{args.action_limit}_{args.cog_type}_{args.cog_init}_{args.discount}_{args.w_lambda}_{args.trainsteps}_{args.energy_model}_{args.score}_{args.network}'
     output_dir = log_dir.replace("../models","../output") 
 
     if args.cog_type == 'variable':
-        log_dir = f'../models/{name}_{args.algo}_{max_time_steps}_{10.0}_{action_type}_{gamma_type}_{gamma}_{epochs}_{batch_size}_{args.action_limit}_{args.cog_type}_{args.cog_init}_{args.discount}_{args.w_lambda}_{args.trainsteps}_{args.degrade_model}_{args.score}_{args.network}'
+        log_dir = f'../models/{name}_{args.algo}_{max_time_steps}_{10.0}_{action_type}_{gamma_type}_{gamma}_{epochs}_{batch_size}_{args.action_limit}_{args.cog_type}_{args.cog_init}_{args.discount}_{args.w_lambda}_{args.trainsteps}_{args.energy_model}_{args.score}_{args.network}'
 
 
     if args.eval:
@@ -81,12 +81,12 @@ def main(args):
                 env = normalize(GarageEnv(BrainEnv(max_time_steps=max_time_steps+1, alpha1_init=train_data[0], alpha2_init=alpha2_new_init, beta_init=train_data[3], 
                                                    gamma_init=gamma_init, X_V_init=train_data[5], 
                                                    D_init=train_data[4], cog_type=args.cog_type, cog_init=train_data[-1], adj=adj, action_limit=args.action_limit, 
-                                                   w_lambda=args.w_lambda, gamma_type=gamma_type, action_type=action_type, scale=False, degrade_model=args.degrade_model)), 
+                                                   w_lambda=args.w_lambda, gamma_type=gamma_type, action_type=action_type, scale=False, energy_model=args.energy_model)), 
                                                    normalize_obs=True)
             else:
                 env = GarageEnv(BrainEnv(max_time_steps=max_time_steps+1, alpha1_init=train_data[0], alpha2_init=alpha2_new_init, beta_init=train_data[3], gamma_init=gamma_init, X_V_init=train_data[5], \
                                             D_init=train_data[4], cog_type=args.cog_type, cog_init=train_data[-1], adj=adj, action_limit=args.action_limit, 
-                                            w_lambda=args.w_lambda, gamma_type=gamma_type, action_type=action_type, scale=scale_state, degrade_model = args.degrade_model))
+                                            w_lambda=args.w_lambda, gamma_type=gamma_type, action_type=action_type, scale=scale_state, energy_model = args.energy_model))
                 
             #policy = GaussianLSTMPolicy(name='policy', learn_std=False, env_spec=env.spec)
             policy = GaussianMLPPolicy(name='policy',env_spec=env.spec, hidden_sizes=[args.network, args.network], max_std=None, adaptive_std=False, std_share_network=False, output_nonlinearity=None)
@@ -235,7 +235,7 @@ def main(args):
         policy = train_policy(seed=args.seed, n_epochs=epochs, batch_size=batch_size, action_type=action_type, gamma_type=gamma_type, gamma=gamma, max_time_steps=max_time_steps, algo_name=args.algo)
 
     #test accuracy
-    evaluator = EvalPolicy(T=11, snapshot_dir=output_dir, log_dir=log_dir, gamma=gamma, gamma_type=gamma_type, cog_init=cog_init, adj=adj, action_type=action_type, action_limit=args.action_limit, w_lambda=args.w_lambda, degrade_model=args.degrade_model)
+    evaluator = EvalPolicy(T=11, snapshot_dir=output_dir, log_dir=log_dir, gamma=gamma, gamma_type=gamma_type, cog_init=cog_init, adj=adj, action_type=action_type, action_limit=args.action_limit, w_lambda=args.w_lambda, energy_model=args.energy_model)
     evaluator.simulate(train_data, 'train', scale_state, args.normalize)
     train_mae, train_mae_emci, train_mae_cn, train_mae_lmci, train_mae_smc, train_mse, train_mse_emci, train_mse_cn, train_mse_lmci, train_mse_smc, train_reward_gain, train_reward_rl, train_reward = evaluator.eval(train_df, 'train', args.datatype, score)
 
@@ -249,7 +249,7 @@ def main(args):
         
     results_df = pd.DataFrame({'category':'APOE', 'name':name, 'gamma':gamma,'gamma_type':gamma_type, 'epochs':epochs, 'batch_size':batch_size, 'cog_mtl':args.cog_mtl, 
                                 'discount':args.discount, 'max_time_steps':args.trainsteps, 'w_lambda':args.w_lambda, 'action_lim':args.action_limit, 'cog_init':args.cog_init, 'cog_type':args.cog_type,
-                                'model':args.degrade_model, 'score':args.score, 'network':args.network, 'algo':args.algo,
+                                'model':args.energy_model, 'score':args.score, 'network':args.network, 'algo':args.algo,
                                 'train_mae':train_mae, 'valid_mae':valid_mae, 'test_mae':test_mae,
                                 'train_mse':train_mse, 'valid_mse':valid_mse, 'test_mse':test_mse,
                                 'train_mae_emci':train_mae_emci, 'valid_mae_emci':valid_mae_emci, 'test_mae_emci':test_mae_emci,
