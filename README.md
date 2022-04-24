@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ## Repository structure
-- _dataset_: sample input data files along with associated parameters (e.g.: synthetic data (`synthetic_split0.xls`) and real-world ADNI data (`adni_split0.xls`))
+- _dataset_: sample input data files along with associated parameter files (e.g.: synthetic data (`synthetic_split0.xls`) and real-world ADNI data (`adni_split0.xls`))
 - _models_: stores the trained models under subfolders created based on input parameter combination
 - _notebooks_: notebooks used for parameter estimation of differential equations and simulating synthetic data
 - _output_: stores the cognition trajectories generated after evaluation (cognition plots and related values in excel file)
@@ -72,7 +72,7 @@ Evaluate the trained RL model by executing the following command in `src` folder
 ```
 python run_agents.py configs/eval_configs
 ```
-Browse the `output` folder to view the results of the experiment. The output excel file has following columns:
+Browse the `output` folder to view the results of the experiment. An example excel file named `adni_split0_TRPO_11_7.0_delta_fixed_1.0_1000_1000_2.0_fixed_full_1.0_1.0_11_inverse_MMSE_32.xlsx` has been included for patient cohort in `adni_split0.xls`. The output excel file has following columns:
 
 **Input Variables (Ground-truth)**
 
