@@ -73,6 +73,7 @@ Evaluate the trained RL model by executing the following command in `src` folder
 python run_agents.py configs/eval_configs
 ```
 Browse the `output` folder to view the results of the experiment. The output excel file has following columns:
+
 **Input Variables (Ground-truth)**
 
 | Column Name | Description |
@@ -95,8 +96,7 @@ Browse the `output` folder to view the results of the experiment. The output exc
 | Column Name | Description |
 | --- | ----------- |
 |	beta_estm	| <img src="https://render.githubusercontent.com/render/math?math=\beta"> parameter for amyloid propagation |
-| tpo_estm |  |
-| max_tpo	| |
+| tpo_estm | Actual pathology time-period at baseline (CurAGE - 50) |
 | alpha1_estm	| <img src="https://render.githubusercontent.com/render/math?math=\alpha_1"> for brain degeneration |
 | alpha2_gamma_estm	| <img src="https://render.githubusercontent.com/render/math?math=\alpha_2*\gamma"> for computing activity Y(t) |
 
