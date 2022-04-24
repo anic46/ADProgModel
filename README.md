@@ -45,7 +45,7 @@ Here we desribe the steps to run train the model once the parameters have been e
 cd src
 python configs/train_config.py
 ```
-Edit the `NUM_THREADS` variables in the `run_agents.py` file according to your local machine.
+Edit the `NUM_THREADS` variable in `run_agents.py` according to your local machine.
 Train the agents by executing the following command in `src` folder
 ```
 python run_agents.py configs/train_configs
@@ -67,7 +67,7 @@ The `models` folder stores training progress using tensorboard events and the tr
 cd src
 python configs/eval_config.py
 ```
-Edit the NUM_THREADS variables in the run_agents.py file according to your local machine.
+Edit the `NUM_THREADS` variable in the `run_agents.py` according to your local machine.
 Evaluate the trained RL model by executing the following command in `src` folder
 ```
 python run_agents.py configs/eval_configs
