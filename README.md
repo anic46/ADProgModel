@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ## Repository structure
-- _dataset_: sample input data files (synthetic data and real-world ADNI data)
+- _dataset_: sample input data files along with associated parameters (e.g.: synthetic data (`synthetic_split0.xls`) and real-world ADNI data (`adni_split0.xls`))
 - _models_: stores the trained models under subfolders created based on input parameter combination
 - _notebooks_: notebooks used for parameter estimation of differential equations and simulating synthetic data
 - _output_: stores the cognition trajectories generated after evaluation (cognition plots and related values in excel file)
