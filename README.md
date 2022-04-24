@@ -94,11 +94,11 @@ Browse the `output` folder to view the results of the experiment. The output exc
 
 | Column Name | Description |
 | --- | ----------- |
-|	beta_estm	| Beta parameter for amyloid propagation |
+|	beta_estm	| <img src="https://render.githubusercontent.com/render/math?math=\beta"> parameter for amyloid propagation |
 | tpo_estm |  |
 | max_tpo	| |
-| alpha1_estm	| |
-| alpha2_gamma_estm	| $$\sqrt{x}$$ |
+| alpha1_estm	| <img src="https://render.githubusercontent.com/render/math?math=\alpha_1"> for brain degeneration |
+| alpha2_gamma_estm	| <img src="https://render.githubusercontent.com/render/math?math=\alpha_2*\gamma"> for computing activity Y(t) |
 
 **Variables computed using estimated DE parameters and information allocation by RL model**
 
