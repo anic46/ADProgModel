@@ -74,6 +74,7 @@ python run_agents.py configs/eval_configs
 ```
 Browse the `output` folder to view the results of the experiment. The output excel file has following columns:
 - Input Variables (Ground-truth)
+- 
 | Column Name | Description |
 | --- | ----------- |
 | RID | Patient ID  |
@@ -86,9 +87,13 @@ Browse the `output` folder to view the results of the experiment. The output exc
 | APOEPOS | Presence of  APOE ε4 gene |
 | MMSE_norm, ADAS11_norm, ADAS13_norm | Normalized MMSE, ADAS11, ADAS13 Scores |
 | mri_FRONTAL_norm, mri_HIPPO_norm | Normalized Frontal/Hippocampal region size (X(t)) |
-| FRONTAL_SURV, HIPPOCAMPAL_SUVR | | Instantaneous Amyloid Accumulation in Frontal/Hippocampal regions |
+| FRONTAL_SURV, HIPPOCAMPAL_SUVR | Instantaneous Amyloid Accumulation in Frontal/Hippocampal regions |
 | cogsc	| Cognition score (MMSE in our case) |
+
 - Estimated parameters for differential equations
+
+| Column Name | Description |
+| --- | ----------- |
 |	beta_estm	| Beta parameter for amyloid propagation |
 | tpo_estm |  |
 | max_tpo	| |
@@ -96,6 +101,9 @@ Browse the `output` folder to view the results of the experiment. The output exc
 | alpha2_gamma_estm	| $\alpha$ |
 
 - Variables computed using estimated DE parameters and information alocationRL model
+
+| Column Name | Description |
+| --- | ----------- |
 | reg1_info_rl | Information processed by frontal region |
 | reg2_info_rl | Information processed by hippocampal region |
 | reg1_fdg_rl	| Frontal energy consumption |
