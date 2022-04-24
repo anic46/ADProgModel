@@ -60,7 +60,7 @@ Energy model corresponds to how Yv is modeled as a function of Xv and Iv. We exp
 - Inverse model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)}">
 - Inverse-squared model: <img src="https://render.githubusercontent.com/render/math?math=Y(t) = \frac{gamma*I(t)}{X(t)^2}">
 
-The `models` folder stores training progress using tensorboard events and the trained RL model as `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values across all subjects in a train/val fold are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
+The `models` folder stores training progress using tensorboard events and the trained RL model as `params.pkl`. Browse the `output` folder to view the results of the experiment. Also, the MAE and MSE values across all subjects in a train/val/test fold are saved in `output/results_adni.csv` and `output/results_synthetic.csv` files.
 
 ## Evaluating a trained model
 ```
