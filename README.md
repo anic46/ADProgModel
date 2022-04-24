@@ -40,7 +40,7 @@ pip install -r requirements.txt
 3. Follow the steps in the notebook. It will generate the parameters for the data and store it in an `excel/csv` file in `dataset/processed` folder. (e.g. ` adni_split0_parameters.xls`)
 
 ### Running the model
-Here we desribe the steps to run train the model once the parameters have been estimated. Example is shown using the sample ADNI data provided in `dataset/processed/` folder. To train the RL agent with various parameter configurations described in the paper, use the following command. The base configuration of parameters is stored in `src/brain.json` file.
+Here we desribe the steps to run train the model once the parameters have been estimated. Example is shown using the sample ADNI data `adni_split0.xls` provided in `dataset/processed/` folder. To train the RL agent with various parameter configurations described in the paper, use the following command. The base configuration of parameters is stored in `src/brain.json` file.
 ```
 cd src
 python configs/train_config.py
