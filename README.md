@@ -73,8 +73,8 @@ Evaluate the trained RL model by executing the following command in `src` folder
 python run_agents.py configs/eval_configs
 ```
 Browse the `output` folder to view the results of the experiment. The output excel file has following columns:
-- Input Variables (Ground-truth)
-- 
+**Input Variables (Ground-truth)**
+
 | Column Name | Description |
 | --- | ----------- |
 | RID | Patient ID  |
@@ -85,12 +85,12 @@ Browse the `output` folder to view the results of the experiment. The output exc
 | PTGENDER/ PTGENDER_num | Gender (Male/Female)|
 | PTEDUCAT | Years of education |
 | APOEPOS | Presence of  APOE ε4 gene |
-| MMSE_norm, ADAS11_norm, ADAS13_norm | Normalized MMSE, ADAS11, ADAS13 Scores |
-| mri_FRONTAL_norm, mri_HIPPO_norm | Normalized Frontal/Hippocampal region size (X(t)) |
-| FRONTAL_SURV, HIPPOCAMPAL_SUVR | Instantaneous Amyloid Accumulation in Frontal/Hippocampal regions |
+| MMSE_norm, ADAS11_norm, ADAS13_norm | Normalized MMSE, ADAS11, ADAS13 scores |
+| mri_FRONTAL_norm, mri_HIPPO_norm | Normalized Frontal/Hippocampal region size - X(t) |
+| FRONTAL_SURV, HIPPOCAMPAL_SUVR | Instantaneous amyloid accumulation in Frontal/Hippocampal regions - D(t) |
 | cogsc	| Cognition score (MMSE in our case) |
 
-- Estimated parameters for differential equations
+**Estimated parameters for differential equations**
 
 | Column Name | Description |
 | --- | ----------- |
@@ -98,9 +98,9 @@ Browse the `output` folder to view the results of the experiment. The output exc
 | tpo_estm |  |
 | max_tpo	| |
 | alpha1_estm	| |
-| alpha2_gamma_estm	| $\alpha$ |
+| alpha2_gamma_estm	| $$\sqrt{x}$$ |
 
-- Variables computed using estimated DE parameters and information alocationRL model
+**Variables computed using estimated DE parameters and information allocation by RL model**
 
 | Column Name | Description |
 | --- | ----------- |
