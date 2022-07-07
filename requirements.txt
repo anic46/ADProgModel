@@ -1,5 +1,5 @@
 tensorflow==2.2.0
-garage==2020.06.3
+garage==2021.03
 tensorflow-probability==0.9.0
 numpy
 pandas
